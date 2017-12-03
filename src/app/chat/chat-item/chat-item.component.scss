@@ -1,0 +1,19 @@
+li {
+    margin: 5px 0;
+
+    .vnt-message-info {
+        color: #999;
+        margin: 0;
+        padding: 0 3px;
+
+        .vnt-author-name {
+            font-weight: bold;
+        }
+    }
+
+    .vnt-message-text {
+        border-radius: 10px;
+        background: #eee;
+        padding: 10px;
+    }
+}
