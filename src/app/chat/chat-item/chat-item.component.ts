@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ChatItemComponent implements OnInit {
 
   @Input() private author: string;
-  @Input() private date: Date;
+  @Input() private time: Date;
   @Input() private message: string;
 
   private _chatItemClass: string = '';

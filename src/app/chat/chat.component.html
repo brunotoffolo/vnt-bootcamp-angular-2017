@@ -1,9 +1,9 @@
 <vnt-chat-header></vnt-chat-header>
 
 <div>
-  <ul>
+  <ul #autoScrollingArea>
     <vnt-chat-item *ngFor="let message of _messageList"
-      [author]="message.author" [date]="message.date" [message]="message.message">
+      [author]="message.author" [time]="message.time" [message]="message.message">
     </vnt-chat-item>
   </ul>
 

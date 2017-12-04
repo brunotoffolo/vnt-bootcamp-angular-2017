@@ -1,41 +1,32 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../user.service';
+import * as io from 'socket.io-client';
 
 @Injectable()
 export class ChatService {
 
   private _messages: any[];
+  public _backend: any;
+
+  readonly CHAT_BACKEND_URL = 'http://localhost:3000/';
 
   constructor(private _userService: UserService) {
-    this._messages = [
-      {
-        author: 'Bruno Toffolo',
-        date: new Date(),
-        message: '1 2 3 Catorze'
-      },
-      {
-        author: 'Bono Vox',
-        date: new Date(),
-        message: 'Im at a place called Vertigo'
-      },
-      {
-        author: 'Daniel Boaventura',
-        date: new Date(),
-        message: 'Hello Detroit'
-      }
-    ];
+    this._backend = io(this.CHAT_BACKEND_URL);
+    this._messages = [];
   }
 
   public getMessages(): any[] {
     return this._messages;
   }
 
-  public sendMessage(message: any): void {
-    this._messages.push({
+  public sendMessage(messageText: any): void {
+    let message = {
       author: this._userService.getUsername(),
-      date: new Date(),
-      message: message
-    });
+      time: new Date(),
+      message: messageText
+    };
+
+    this._backend.emit('messages', message);
   }
 
 }
