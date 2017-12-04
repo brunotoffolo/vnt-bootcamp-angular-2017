@@ -1,14 +1,44 @@
+.vnt-chat-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.jumbotron {
+    border-radius: 10px 10px 0 0;
+    margin: 5px 0 0 0;
+}
+
 .vnt-user-details {
     background: #fff;
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin: 10px 0;
     padding: 10px;
 
     p {
-        font-size: 1.1em;
+        font-size: 1.0em;
         line-height: 34px;
         margin: 0;
     }
+}
+
+.vnt-brand-header {
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 6.0em;
+}
+
+h2 {
+    color: #999;
+    font-size: 1em;
+    margin: 0;
+    text-transform: uppercase;
 }

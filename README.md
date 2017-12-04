@@ -1,14 +1,14 @@
-# VntChat
+# VNT Chat - Venturus Bootcamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+This project contains the implementation of a chat application in Angular 5. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5 during **Venturus Bootcamp Angular**. Its main purpose is to allow the developer to learn basic Angular concepts and build a complete front-end application.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Running the back-end
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The back-end implementation for the chat service is built on top of Express.js and uses MongoDB as the persistence layer. It is a dummy implementation built for demonstration purposes (only to allow the app to communicate with a real server and make the Bootcamp a bit funnier for the participants!).
 
 ## Build
 

@@ -11,6 +11,8 @@ export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
   private _messageList: any[];
   private _unsentMessage: string = '';
 
+  readonly MAX_CHARACTER_COUNT: number = 300;
+
   @ViewChild('autoScrollingArea') private _autoScrollingArea: ElementRef;
 
   constructor (private _chatService: ChatService) { }
