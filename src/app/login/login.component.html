@@ -1,0 +1,5 @@
+<div *ngIf="!_userService.isUserLoggedIn()">
+  <p>Please fill in your username:</p>
+  <input type="text" [(ngModel)]="_username" />
+  <button class="btn btn-primary" (click)="doLogin()">Entrar</button>
+</div>

@@ -1,3 +1,10 @@
 <div class="jumbotron">
   <h1>Venturus Bootcamp Angular</h1>
+  <div class="vnt-user-details" *ngIf="_userService.isUserLoggedIn()">
+      <p>Welcome, {{ _userService.getUsername() }}!</p>
+      <p>
+        Last login: {{ _userService.getLoginDate() | date: 'dd/MM/yyyy, HH:mm' }}
+        <button class="btn btn-primary" (click)="_userService.logout()">Log Out</button>
+      </p>
+  </div>
 </div>

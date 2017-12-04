@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../user.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'vnt-chat-header',
   templateUrl: './chat-header.component.html',
-  styleUrls: ['./chat-header.component.css']
+  styleUrls: ['./chat-header.component.scss']
 })
-export class ChatHeaderComponent implements OnInit {
+export class ChatHeaderComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private _userService: UserService) { }
 
 }

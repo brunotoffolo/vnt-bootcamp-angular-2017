@@ -1,5 +1,6 @@
 li {
     margin: 5px 0;
+    width: 70%; 
 
     .vnt-message-info {
         color: #999;
@@ -15,5 +16,17 @@ li {
         border-radius: 10px;
         background: #eee;
         padding: 10px;
+    }
+}
+
+.vnt-my-own-message {
+    margin-left: 30%;
+
+    .vnt-message-info {
+        color: #008fb3;
+        text-align: right;
+    }
+    .vnt-message-text {
+        background: #ccf5ff;
     }
 }

@@ -1,4 +1,4 @@
-<li>
+<li [ngClass]="_chatItemClass">
   <p class="vnt-message-info">
     <span class="vnt-author-name">{{ author }}</span>, {{ date | date: 'dd/MM/yyyy, HH:mm:ss' }}</p>
   <p class="vnt-message-text">{{ message }}</p>

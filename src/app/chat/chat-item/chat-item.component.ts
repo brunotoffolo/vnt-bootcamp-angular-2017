@@ -1,3 +1,4 @@
+import { UserService } from '../../user.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -11,9 +12,14 @@ export class ChatItemComponent implements OnInit {
   @Input() private date: Date;
   @Input() private message: string;
 
-  constructor() { }
+  private _chatItemClass: string = '';
+
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
+    if (this._userService.getUsername() == this.author) {
+      this._chatItemClass = 'vnt-my-own-message';
+    }
   }
 
 }

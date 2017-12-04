@@ -1,12 +1,14 @@
 <vnt-chat-header></vnt-chat-header>
 
-<ul>
-  <vnt-chat-item *ngFor="let message of _messageList"
-    [author]="message.author" [date]="message.date" [message]="message.message">
-  </vnt-chat-item>
-</ul>
+<div>
+  <ul>
+    <vnt-chat-item *ngFor="let message of _messageList"
+      [author]="message.author" [date]="message.date" [message]="message.message">
+    </vnt-chat-item>
+  </ul>
 
-<div class="vnt-compose-message">
-  <textarea></textarea>
-  <button class="btn btn-primary">Enviar</button>
+  <div class="vnt-compose-message">
+    <textarea [(ngModel)]="_unsentMessage"></textarea>
+    <button class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+  </div>
 </div>

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Injectable()
 export class ChatService {
 
   private _messages: any[];
 
-  constructor() {
+  constructor(private _userService: UserService) {
     this._messages = [
       {
         author: 'Bruno Toffolo',
@@ -27,6 +28,14 @@ export class ChatService {
 
   public getMessages(): any[] {
     return this._messages;
+  }
+
+  public sendMessage(message: any): void {
+    this._messages.push({
+      author: this._userService.getUsername(),
+      date: new Date(),
+      message: message
+    });
   }
 
 }
