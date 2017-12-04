@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -6,7 +7,7 @@ export class UserService {
   private _username: string = null;
   private _loginDate: Date = null;
 
-  constructor() {
+  constructor(private _router: Router) {
     let username = sessionStorage.getItem('username');
     let loginDate = sessionStorage.getItem('loginDate');
 
@@ -30,6 +31,8 @@ export class UserService {
 
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('loginDate');
+
+    this._router.navigate(['']);
   }
 
   public isUserLoggedIn(): boolean {
