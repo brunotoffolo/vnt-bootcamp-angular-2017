@@ -1,3 +1,4 @@
+import { AboutComponent } from '../about/about.component';
 import { AuthGuard } from './auth.guard';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -8,6 +9,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'chat', component: ChatComponent, canActivate: [AuthGuard] },
+    { path: 'about', component: AboutComponent },
     { path: '**', component: LoginComponent }
 ];
 

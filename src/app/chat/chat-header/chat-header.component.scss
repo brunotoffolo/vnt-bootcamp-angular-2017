@@ -1,3 +1,31 @@
+.vnt-menu-bar {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-flow: row;
+    list-style-type: none;
+    margin: 5px 0 0 0;
+    padding: 0 0 5px 0;
+
+    li {
+        padding: 8px;
+    }
+
+    a {
+        color: #333;
+        font-weight: normal;
+        padding: 10px 20px;
+        text-transform: uppercase;
+    }
+
+    .vnt-active-page {
+        border-bottom: 5px solid #eee;
+        color: #1abc9c;
+        font-weight: bold;
+    }
+}
+
 .vnt-chat-header {
     display: flex;
     flex-direction: row;
@@ -6,8 +34,8 @@
 }
 
 .jumbotron {
-    border-radius: 10px 10px 0 0;
-    margin: 5px 0 0 0;
+    border-radius: 0;
+    margin: 0;
 }
 
 .vnt-user-details {
