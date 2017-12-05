@@ -2,6 +2,6 @@
   <h1>Welcome to our chat!</h1>
   <hr />
   <p>Please fill in your username:</p>
-  <input type="text" [(ngModel)]="_username" />
+  <input type="text" [(ngModel)]="_username" (keyup)="onKeyPressed($event)" />
   <button class="btn btn-primary" (click)="doLogin()">Login</button>
 </div>

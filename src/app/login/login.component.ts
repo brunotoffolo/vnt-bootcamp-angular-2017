@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   private doLogin(): void {
-    console.log(this._username);
     if (this._username.length > 0) {
       this._userService.login(this._username);
       this.goToChat();
@@ -32,6 +31,12 @@ export class LoginComponent implements OnInit {
 
   private goToChat(): void {
     this._router.navigate(['chat']);
+  }
+
+  private onKeyPressed(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.doLogin();
+    }
   }
 
 }

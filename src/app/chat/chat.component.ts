@@ -43,4 +43,10 @@ export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
         this._autoScrollingArea.nativeElement.scrollHeight;
     }
 
+    private onKeyPressed(event: KeyboardEvent): void {
+      if (event.key === 'Enter' && event.shiftKey !== true) {
+        this.sendMessage();
+      }
+    }
+
 }

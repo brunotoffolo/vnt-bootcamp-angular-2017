@@ -6,8 +6,8 @@
   </ul>
 
   <div class="vnt-compose-message">
-    <textarea [(ngModel)]="_unsentMessage" maxlength="{{ MAX_CHARACTER_COUNT }}"></textarea>
+    <textarea [(ngModel)]="_unsentMessage" maxlength="{{ MAX_CHARACTER_COUNT }}" (keyup)="onKeyPressed($event)"></textarea>
     <p class="vnt-remaining-characters">Characters: {{ _unsentMessage.length }} / {{ MAX_CHARACTER_COUNT }}</p>
-    <button class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+    <button class="btn btn-primary" (click)="sendMessage()">Send</button>
   </div>
 </div>
