@@ -1,3 +1,4 @@
+import { Message } from './model/message.model';
 import { ChatService } from './chat.service';
 import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChi
 })
 export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
-  private _messageList: any[] = [];
+  private _messageList: Message[] = [];
   private _unsentMessage: string = '';
 
   readonly MAX_CHARACTER_COUNT: number = 300;

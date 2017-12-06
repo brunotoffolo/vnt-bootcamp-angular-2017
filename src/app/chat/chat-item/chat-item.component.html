@@ -1,5 +1,6 @@
 <li [ngClass]="_chatItemClass">
   <p class="vnt-message-info">
-    <span class="vnt-author-name">{{ author }}</span>, {{ time | date: 'dd/MM/yyyy, HH:mm:ss' }}</p>
-  <p class="vnt-message-text">{{ message }}</p>
+    <span class="vnt-author-name">{{ _message.getAuthor() }}</span>, {{ _message.getTime() | date: 'dd/MM/yyyy, HH:mm:ss' }}
+  </p>
+  <p class="vnt-message-text">{{ _message.getText() }}</p>
 </li>

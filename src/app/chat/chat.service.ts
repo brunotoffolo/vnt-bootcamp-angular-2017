@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../user.service';
+import { Message } from './model/message.model';
 import { ReplaySubject } from 'rxjs/Rx';
 import * as io from 'socket.io-client';
 
@@ -7,7 +8,7 @@ import * as io from 'socket.io-client';
 export class ChatService {
 
   private _backend: any;
-  private _messageList$: ReplaySubject<any>;
+  private _messageList$: ReplaySubject<Message>;
 
   readonly CHAT_BACKEND_URL = 'http://localhost:3000/';
 
@@ -23,16 +24,20 @@ export class ChatService {
   }
 
   public subscribeToNewMessages(callback: any): void {
-    this._messageList$.subscribe(callback);
+    this._messageList$.subscribe(
+      element => {
+        let message = new Message(element['author'], element['message'], element['time']);
+        callback(message);
+      }
+    );
   }
 
   public sendMessage(messageText: any): void {
-    let message = {
-      author: this._userService.getUsername(),
-      time: new Date(),
-      message: messageText
-    };
-
+    let message = new Message(
+      this._userService.getUsername(),
+      messageText,
+      new Date()
+    );
     this._backend.emit('messages', message);
   }
 
