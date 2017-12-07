@@ -1,16 +1,18 @@
+import { Subscription } from 'rxjs/Rx';
 import { Message } from './model/message.model';
 import { ChatService } from './chat.service';
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'vnt-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
+export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy {
 
   private _messageList: Message[] = [];
   private _unsentMessage: string = '';
+  private _chatServiceSubscription: Subscription = null;
 
   readonly MAX_CHARACTER_COUNT: number = 300;
 
@@ -19,7 +21,7 @@ export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
   constructor (private _chatService: ChatService) { }
 
   ngOnInit() {
-    this._chatService.subscribeToNewMessages(
+    this._chatServiceSubscription = this._chatService.subscribeToNewMessages(
       message => this._messageList.push(message)
     );
   }
@@ -47,6 +49,12 @@ export class ChatComponent implements OnInit, AfterViewChecked, AfterViewInit {
         event.shiftKey !== true &&
         this._unsentMessage.trim().length > 0) {
       this.sendMessage();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this._chatServiceSubscription != null) {
+      this._chatServiceSubscription.unsubscribe();
     }
   }
 

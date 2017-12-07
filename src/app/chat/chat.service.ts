@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../user.service';
 import { Message } from './model/message.model';
-import { ReplaySubject } from 'rxjs/Rx';
+import { ReplaySubject, Subscription } from 'rxjs/Rx';
 import * as io from 'socket.io-client';
 
 @Injectable()
@@ -23,8 +23,8 @@ export class ChatService {
     );
   }
 
-  public subscribeToNewMessages(callback: any): void {
-    this._messageList$.subscribe(
+  public subscribeToNewMessages(callback: any): Subscription {
+    return this._messageList$.subscribe(
       element => {
         let message = new Message(element['author'], element['message'], element['time']);
         callback(message);
